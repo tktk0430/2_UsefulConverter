@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Useful Convertor</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css" integrity="sha384-jzngWsPS6op3fgRCDTESqrEJwRKck+CILhJVO5VvaAZCq8JYf8HsR/HPpBOOPZfR" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Useful Convertor</h1>
+            <form>
+                <div class="left-hand">
+                    <div class="value">
+                        <input id="left-value" type="number" name="left-value" step="0.00000001">
+                        <p>(value)</p>
+                    </div>
+                    <div class="unit">
+                        <input id="left-unit" type="text" name="left-unit" step="0.00000001">
+                        <p>(unit)</p>
+                    </div>
+                </div>
+                <i class="fas fa-arrows-alt-v"></i>
+                <div class="right-hand">
+                        <div class="value">
+                            <input id="right-value" type="number" name="right-value">
+                            <p>(value)</p>
+                        </div>
+                        <div class="unit">
+                            <input id="right-unit" type="text" name="right-unit">
+                            <p>(unit)</p>
+                        </div>
+                </div>
+                <button type="button" id="calc" class="btn btn-primary">calc.</button>
+            </form>
+            <div id="note" class="notice">Hello.</div>
+        </div>
+        <hr>
+        <div class="container">
+            <p>now only weight length, sorry.</p>
+        </div>
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>
