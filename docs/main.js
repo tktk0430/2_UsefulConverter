@@ -2,6 +2,7 @@ var leftValue=document.getElementById("left-value");
 var leftUnit=document.getElementById("left-unit");
 var rightValue=document.getElementById("right-value");
 var rightUnit=document.getElementById("right-unit");
+var noteTarget=document.getElementById("note");
 
 var areSameUnit=function(unit1,unit2){
     for (key in unitArray){
@@ -17,13 +18,21 @@ var areSameUnit=function(unit1,unit2){
 }
 
 document.getElementById("calc").addEventListener("click",function(){
-    myUnit=areSameUnit(leftUnit.value,rightUnit.value)
-    noteTarget=document.getElementById("note")
-    if (myUnit){
+    Left=String(leftUnit.value).toLowerCase();
+    Right=String(rightUnit.value).toLowerCase();
+    myUnit=areSameUnit(Left,Right);
+    if (myUnit==="temperature"){
         if (leftValue.value!=""){
-            rightValue.value=(leftValue.value*unitArray[myUnit][leftUnit.value]/unitArray[myUnit][rightUnit.value]).toFixed(4);
+            rightValue.value=(((leftValue.value-unitArray[myUnit][Left]["b"])/unitArray[myUnit][Left]["a"])*unitArray[myUnit][Right]["a"]+unitArray[myUnit][Right]["b"]).toFixed(4);
         }else{
-            leftValue.value=(rightValue.value*unitArray[myUnit][rightUnit.value]/unitArray[myUnit][leftUnit.value]).toFixed(4);
+            leftValue.value=(((rightValue.value-unitArray[myUnit][Right]["b"])/unitArray[myUnit][Right]["a"])*unitArray[myUnit][Left]["a"]+unitArray[myUnit][Left]["b"]).toFixed(4);
+        };
+        noteTarget.innerHTML=myUnit;
+    }else if (myUnit){
+        if (leftValue.value!=""){
+            rightValue.value=(leftValue.value*unitArray[myUnit][Left]/unitArray[myUnit][Right]).toFixed(4);
+        }else{
+            leftValue.value=(rightValue.value*unitArray[myUnit][Right]/unitArray[myUnit][Left]).toFixed(4);
         };
         noteTarget.innerHTML=myUnit;
     }else{
@@ -35,4 +44,5 @@ document.getElementById("reset").addEventListener("click",function(){
     leftValue.value="";
     rightUnit.value="";
     rightValue.value="";
+    noteTarget.innerHTML="<br>";
 });
